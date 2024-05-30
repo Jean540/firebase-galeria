@@ -37,18 +37,13 @@ const Page = () => {
       }
     }
   };
-
-  const reset = () => {
-    return true;
-  };
-
   return (
     <C.Container>
       <C.Area>
         <C.Header>Galeria de Fotos</C.Header>
 
         <C.UploadForm method="POST" onSubmit={(e) => handleFormSubmit(e)}>
-          <input type="file" name="image" ref={reset} />
+          <input type="file" name="image" />
           <input type="submit" value="Enviar" />
           {uploading && "Enviando..."}
         </C.UploadForm>
