@@ -1,6 +1,12 @@
 import { Photo } from "@/types/photo";
 import { storage } from "../libs/firebase";
-import { ref, listAll, getDownloadURL, uploadBytes } from "firebase/storage";
+import {
+  ref,
+  listAll,
+  getDownloadURL,
+  uploadBytes,
+  deleteObject,
+} from "firebase/storage";
 import { v4 as createId } from "uuid";
 
 export const getAll = async (): Promise<Photo[]> => {
@@ -19,6 +25,24 @@ export const getAll = async (): Promise<Photo[]> => {
   }
 
   return list;
+};
+
+export const deletePhoto = async (url: string) => {
+  // Create a reference to the file to delete
+  const desertRef = ref(storage, url);
+
+  // Delete the file
+  deleteObject(desertRef)
+    .then(() => {
+      return url;
+    })
+    .catch((error) => {
+      new Error("Tipo de arquivo não suportado");
+    });
+
+  // return(
+
+  // )
 };
 
 export const insert = async (file: File) => {

@@ -2,15 +2,17 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB0A5BEardAHThcOdhyt_ZJ_C-JV4UffX4",
-  authDomain: "galeria-4c6d9.firebaseapp.com",
-  projectId: "galeria-4c6d9",
-  storageBucket: "galeria-4c6d9.appspot.com",
-  messagingSenderId: "1094494081057",
-  appId: "1:1094494081057:web:f8d3535e2fc592a1675360",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
-console.log(firebaseConfig);
 
+console.log(firebaseConfig);
 const firebaseApp = initializeApp(firebaseConfig);
 
-export const storage = getStorage(firebaseApp);
+const storage = getStorage(firebaseApp);
+
+export { firebaseApp, storage };

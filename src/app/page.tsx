@@ -37,6 +37,7 @@ const Page = () => {
       }
     }
   };
+
   return (
     <C.Container>
       <C.Area>
@@ -58,7 +59,13 @@ const Page = () => {
           <C.PhotoList>
             {photos.map((e, key) => (
               <div>
-                <PhotoItem key={key} url={e.url} name={e.name} />
+                <PhotoItem
+                  key={key}
+                  url={e.url}
+                  name={e.name}
+                  setPhotos={setPhotos}
+                  photos={photos}
+                />
               </div>
             ))}
           </C.PhotoList>
