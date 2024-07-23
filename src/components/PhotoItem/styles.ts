@@ -6,12 +6,20 @@ export const Container = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  p {
+    padding: 10px 0px;
+  }
 
   .img {
     max-width: 100%;
     display: block;
     margin-bottom: 10px;
     border-radius: 10px;
+    max-height: 150px;
+    margin: auto;
   }
 
   button {

@@ -18,8 +18,10 @@ export const PhotoItem = ({ url, name, setPhotos, photos }: Props) => {
 
   return (
     <C.Container>
-      <img src={url} alt={name} className="img" />
-      <p>{name}</p>
+      <div>
+        <img src={url} alt={name} className="img" />
+        <p>{name}</p>
+      </div>
       <button onClick={() => handleDeletePhoto(url)}>Delete</button>
     </C.Container>
   );
